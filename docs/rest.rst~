@@ -1,9 +1,0 @@
-.. _rest:
-
-***************
-REST API
-***************
-
-REST API Reference
-
-.. openapi:: openapi.yml
