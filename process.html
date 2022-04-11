@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Annotation &#8212; MOS 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About us" href="about.html" />
+    <link rel="prev" title="Abstraction" href="abstraction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="annotation">
+<span id="process"></span><h1>Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h1>
+<section id="annotating-a-model-file">
+<h2>Annotating a Model File<a class="headerlink" href="#annotating-a-model-file" title="Permalink to this headline">¶</a></h2>
+<p>For MOS to recognize a structural component of a model in an optimization model
+file, the component must be tagged by a keyword. The keyword is the
+component type defined in the <a class="reference external" href="abstraction.html">abstraction</a> section of the documentation, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Variable: x</span>
+</pre></div>
+</div>
+<p><cite>Interface Objects</cite> and <cite>Interface Files</cite> are the only components that do not have perfect matching to a keyword. Instead, the respective keywords are <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Object</span></code> / <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">Object</span></code> and <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">File</span></code> / <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">File</span></code>.</p>
+<p>An optional <code class="docutils literal notranslate"><span class="pre">Description</span></code> subtag, and associated description of the component, may follow, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Variable: x</span>
+<span class="c1">#@ Description: x=1 location selected, x=0 otherwise</span>
+</pre></div>
+</div>
+<p>Furthermore, there is also an optional <code class="docutils literal notranslate"><span class="pre">Labels</span></code> subtag. Labels
+identify elements of multi-dimensional arrays. For example, a one
+dimensional variable vector of length 3 could represent some property
+of 3 cities. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Variable: x</span>
+<span class="c1">#@ Description: x[i]=1 Location i selected, x[i]=0 otherwise</span>
+<span class="c1">#@ Labels: locations</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">locations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note not every model component has to be tagged for a model to be
+solved, however each component accessible via MOS does need to be
+tagged.</p>
+<p>Finally, an important note about model <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Objects</span></code> and <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code>. Even if they are assigned values in the model source file as in the example below, MOS will require an explicit assignment by human or machine through the various channels of interfacing with a model in MOS. For example, <code class="docutils literal notranslate"><span class="pre">lambd</span></code> here is assigned a value of 0.1 in the source file, but this value is not automatically inputted into MOS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Input Object: lambd</span>
+<span class="c1">#@ Description: $$\lambda$$: regularization parameter</span>
+<span class="n">lambd</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="annotation-example">
+<h2>Annotation Example<a class="headerlink" href="#annotation-example" title="Permalink to this headline">¶</a></h2>
+<p>The following is an extract from an annotated optimization model file describing a Lasso
+regression problem formulated in CVXPY, <a class="reference external" href="https://github.com/Fuinn/mos-examples/tree/main/examples/cvxpy/lasso">available in the MOS Examples repository</a>. Upon posting of this model file to MOS, the model is fully accessible and solvable through MOS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Model: Lasso</span>
+<span class="c1">#@ Description: Machine Learning: Lasso Regression</span>
+
+<span class="kn">import</span> <span class="nn">cvxpy</span> <span class="k">as</span> <span class="nn">cp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#@ Helper Object: m</span>
+<span class="c1">#@ Description: number of data points</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1">#@ Helper Object: n</span>
+<span class="c1">#@ Description: number of features</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1">#@ Helper Object: sigma</span>
+<span class="c1">#@ Description: $$\sigma$$ parameter for generating random dataset</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1">#@ Helper Object: density</span>
+<span class="c1">#@ Description: density parameter for generating random dataset</span>
+<span class="n">density</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+<span class="c1">#@ Helper Object: X</span>
+<span class="c1">#@ Description: data matrix X</span>
+<span class="n">bs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">density</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+
+<span class="c1">#@ Helper Object: Y</span>
+<span class="c1">#@ Description: observations Y</span>
+<span class="n">beta_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">density</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">idxs</span><span class="p">:</span>
+    <span class="n">beta_star</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">beta_star</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1">#@ Helper Object: X_train</span>
+<span class="c1">#@ Description: training data</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1">#@ Helper Object: Y_train</span>
+<span class="c1">#@ Description: training observations</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+
+<span class="c1">#@ Helper Object: X_test</span>
+<span class="c1">#@ Description: test data</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:,</span> <span class="p">:]</span>
+
+<span class="c1">#@ Helper Object: Y_test</span>
+<span class="c1">#@ Description: test observations</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">50</span><span class="p">:]</span>
+
+<span class="c1">#@ Input Object: lambd</span>
+<span class="c1">#@ Description: $$\lambda$$: regularization parameter</span>
+<span class="n">lambd</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
+
+<span class="c1">#@ Variable: beta</span>
+<span class="c1">#@ Description: $$\beta$$: regression coefficients</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1">#@ Function: loss_fn</span>
+<span class="c1">#@ Description: loss function $$\beta X_{train} - Y_{train}$$</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">X_train</span> <span class="o">@</span> <span class="n">beta</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1">#@ Function: regularizer</span>
+<span class="c1">#@ Description: regularization component of objective function $$||\beta||$$</span>
+<span class="n">regularizer</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+
+<span class="c1">#@ Function: objectivefn</span>
+<span class="c1">#@ Description: objective function $$loss_{fn}+\lambda||\beta||$$</span>
+<span class="n">objectivefn</span> <span class="o">=</span> <span class="n">loss_fn</span> <span class="o">+</span> <span class="n">lambd</span> <span class="o">*</span> <span class="n">regularizer</span>
+
+<span class="c1">#@ Problem: problem</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="n">objectivefn</span><span class="p">))</span>
+
+<span class="c1">#@ Solver: solver</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="s2">&quot;ECOS&quot;</span>
+
+<span class="n">problem</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-languages">
+<h2>Model Languages<a class="headerlink" href="#model-languages" title="Permalink to this headline">¶</a></h2>
+<p>Beyond the standard annotation of a model file, there are some model language specifics for integration of an optimization model with MOS.</p>
+<section id="cvxpy">
+<h3>CVXPY<a class="headerlink" href="#cvxpy" title="Permalink to this headline">¶</a></h3>
+<p>There is a necessity to have an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">json</span></code> statement in the model file.</p>
+</section>
+<section id="julia-jump">
+<h3>Julia / JuMP<a class="headerlink" href="#julia-jump" title="Permalink to this headline">¶</a></h3>
+<p>No specific restrictions.</p>
+</section>
+<section id="optmod">
+<h3>OPTMOD<a class="headerlink" href="#optmod" title="Permalink to this headline">¶</a></h3>
+<p>No specific restrictions.</p>
+</section>
+<section id="pyomo">
+<h3>Pyomo<a class="headerlink" href="#pyomo" title="Permalink to this headline">¶</a></h3>
+<p>There is also a necessity to have an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">json</span></code> statement in the model file.
+Pyomo is a recent addition, and the integration of its features with MOS is less advanced.</p>
+</section>
+<section id="gams">
+<h3>GAMS<a class="headerlink" href="#gams" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>GAMS is currently not available on the MOS cloud service, but can be used with a local deployment of MOS.</p></li>
+<li><p>Input objects are restricted to being scalars, with Scalar capitalized in the GAMS definition.</p></li>
+<li><p>At present, the MOS function structure does not work with GAMS. Thus, it is required to be define a variable to maximized/minimized, and with a constraint setting that variable equal to the objective function.</p></li>
+<li><p>A parameter named ‘solver’ is required, with some GAMS solver outputs populated as per examples.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo2.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstraction.html">Abstraction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Annotation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-a-model-file">Annotating a Model File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotation-example">Annotation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-languages">Model Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About us</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="abstraction.html" title="previous chapter">Abstraction</a></li>
+      <li>Next: <a href="about.html" title="next chapter">About us</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Fuinn Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/process.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
