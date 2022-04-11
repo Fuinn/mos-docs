@@ -33,6 +33,5 @@ own models and data may be uploaded to MOS, or models and data chosen from the
    start
    abstraction
    process
-   api
    about
 
