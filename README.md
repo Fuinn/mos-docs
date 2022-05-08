@@ -1,4 +1,4 @@
 # mos-docs
 :zap: MOS Documentation :zap: 
 
-Source files for [MOS documentation](https://mos.fuinn.ie) will be located here.
+Source files for [MOS documentation](https://fuinn.github.io/mos-docs).
