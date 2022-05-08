@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'MOS'
-copyright = '2021, Fuinn Team'
+copyright = '2022, Fuinn Team'
 author = 'Tomás Tinoco De Rubira & James Merrick'
 
 # The full version, including alpha/beta/rc tags
