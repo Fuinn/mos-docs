@@ -1,4 +1,5 @@
 # mos-docs
-:zap: MOS Documentation :zap: 
 
-Source files for [MOS documentation](https://fuinn.github.io/mos-docs).
+MOS software documentation
+
+[![Documentation](https://github.com/Fuinn/mos-docs/actions/workflows/documentation.yml/badge.svg?branch=main)](https://Fuinn.github.io/mos-docs)
