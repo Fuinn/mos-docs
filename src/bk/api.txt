@@ -36,5 +36,5 @@ Requests to the REST API require an ``Authorization`` header with content ``Toke
 Specification
 ^^^^^^^^^^^^^^^
 
-.. openapi:: openapi-shallowmodel.yml
+.. openapi:: ../openapi-shallowmodel.yml
   :examples:
