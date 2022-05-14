@@ -7,15 +7,18 @@ Getting Started
 Using the Service
 =================
 
-Annotating a Model
-==================
-
-Deploying a Model
+Annotating Models
 =================
 
-Interacting with a Model
-========================
+Deploying Models
+================
 
-Monitoring and Analyzing a Model
-================================
+Interacting with Models
+=======================
+
+Monitoring Models
+=================
+
+Saving and Loading Models
+=========================
 
