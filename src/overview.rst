@@ -7,11 +7,11 @@ Overview
 What is MOS?
 ============
 
-MOS is a software application designed to facilitate the deploymnet, integration, management, and analysis of mathematical optimization models. 
+MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models. 
 Some of the key benefits provided are the following:
 
 * Models can be easily uploaded to the application after adding simple annotations to the model code.
-* Models can then be accessed via various available interfaces, including a REST API, a web graphical user interface, and client libraries in popular programming languages such as Python and Julia. 
+* Models can be accessed via various available interfaces, including a REST API, a web graphical user interface, and client libraries in popular programming languages such as Python and Julia. 
 * Models can be run with different inputs by workers running locally or distributed over the network. 
 * Intermediate and end results can be extracted, browsed, and analyzed. 
 * Model performance and usage can be monitored and visualized.
