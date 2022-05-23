@@ -1,0 +1,2 @@
+sphinx>=2.2.1
+sphinx_code_tabs>=0.5.3

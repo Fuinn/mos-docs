@@ -31,7 +31,8 @@ author = 'Tomás Tinoco De Rubira & James Merrick'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-     'sphinxcontrib.openapi',    
+     #'sphinxcontrib.openapi',    
+     'sphinx_code_tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
