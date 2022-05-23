@@ -6,18 +6,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Getting Started &#8212; MOS 0.1.0 documentation</title>
+    <title>Getting Started &#8212; MOS  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/code-tabs.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/code-tabs.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Abstraction" href="abstraction.html" />
-    <link rel="prev" title="MOS" href="index.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -36,42 +38,132 @@
             
   <section id="getting-started">
 <span id="start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>Through parsing of an optimization model file, MOS develops a
-representation (see <a class="reference internal" href="abstraction.html#abstraction"><span class="std std-ref">Abstraction</span></a>) of
-an optimization model, which
-can then be accessed / modified / solved, by human or machine. To
-get started with the cloud version of MOS:</p>
-<section id="access-mos">
-<h2>Access MOS<a class="headerlink" href="#access-mos" title="Permalink to this headline">¶</a></h2>
-<section id="option-1-locally-host">
-<h3>Option 1: Locally host<a class="headerlink" href="#option-1-locally-host" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>[Instructions to follow]</p></li>
-</ul>
+<section id="using-the-service">
+<h2>Using the Service<a class="headerlink" href="#using-the-service" title="Permalink to this headline">¶</a></h2>
+<p>There are three ways to use MOS:</p>
+<ol class="arabic simple">
+<li><p><strong>MOS demo</strong>: This is a simple way to run MOS locally on your machine to try the service. It runs all MOS components in <a class="reference external" href="https://www.docker.com/">docker</a> images using <a class="reference external" href="https://www.docker.com/">docker-compose</a>. It uses development servers NOT suitable for any serious work requiring performance and security. It is just for demo purposes. Instructions for launching the demo can be found <a class="reference external" href="https://github.com/Fuinn/mos-demo">here</a>.</p></li>
+<li><p><strong>MOS cloud</strong>: Access and use MOS hosted on the cloud with performance and security features. (Coming soon)</p></li>
+<li><p><strong>MOS on-premise</strong>: Deploy MOS on a private network and servers by working directly with the <a class="reference internal" href="resources.html#resources-code"><span class="std std-ref">code repositories</span></a>.</p></li>
+</ol>
+<p>For help or questions, <a class="reference external" href="mailto:hello&#37;&#52;&#48;fuinn&#46;ie">reach out to us</a>.</p>
 </section>
-<section id="option-2-sign-up-to-mos-cloud-service-and-obtain-a-token">
-<h3>Option 2: Sign up to MOS cloud service and obtain a token<a class="headerlink" href="#option-2-sign-up-to-mos-cloud-service-and-obtain-a-token" title="Permalink to this headline">¶</a></h3>
+<section id="annotating-models">
+<h2>Annotating Models<a class="headerlink" href="#annotating-models" title="Permalink to this headline">¶</a></h2>
+<p>Annotating a model code is necessary for informing MOS of the various model components that are important and need to be exposed on the model interface. Annotations have the general form below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Tag: Name</span>
+<span class="c1">#@ Key1: Value1</span>
+<span class="c1">#@ Key2: Value2</span>
+<span class="c1">#@ ...</span>
+</pre></div>
+</div>
+<p>Supported tags are the following:</p>
 <ul class="simple">
-<li><p>[Cloud sign up instructions to follow]</p></li>
+<li><p><em>model</em>: Provides the name of the model.</p></li>
+<li><p><em>input file</em>: Provides the name of an input files that can be provided to the model.</p></li>
+<li><p><em>input object</em>:  Provides the name of an input (JSON-serializable) object that can be provided to the model.</p></li>
+<li><p><em>helper object</em>: Provides the name of a pre- or post-optimization (JSON-serializable) helper object.</p></li>
+<li><p><em>variable</em>: Provides the name of an object representing an optimization variable (or collection of scalar variables).</p></li>
+<li><p><em>function</em>: Provides the name of an object representing an optimization function (or collection of scalar-valued functions).</p></li>
+<li><p><em>constraint</em>: Provides the name of an object representing an optimization constraint (or collection of constraints).</p></li>
+<li><p><em>problem</em>: Provides the name of an object representing the optimization problem.</p></li>
+<li><p><em>solver</em>: Provides the name of an object representing the optimization solver.</p></li>
+<li><p><em>output file</em>: Provides the name of an output file that the model produces.</p></li>
+<li><p><em>output object</em>: Provides the name of an output (JSON-serializable) object that the model produces.</p></li>
 </ul>
-</section>
-</section>
-<section id="prepare-or-obtain-an-annotated-model-file">
-<h2>Prepare or obtain an annotated model file<a class="headerlink" href="#prepare-or-obtain-an-annotated-model-file" title="Permalink to this headline">¶</a></h2>
+<p>Supported keys are the following:</p>
 <ul class="simple">
-<li><p>Model examples ready to be uploaded to MOS are available at the <a class="reference external" href="https://github.com/Fuinn/mos-examples">MOS Examples repository</a></p></li>
-<li><p><a class="reference internal" href="process.html#process"><span class="std std-ref">Annotation</span></a> outlines how to annotate your own model file for use
-with MOS. Supported modeling languages are currently <a class="reference external" href="https://cvxpy.org">CVXPY</a>,    <a class="reference external" href="https://jump.dev">JuMP</a>, <a class="reference external" href="http://www.pyomo.org">Pyomo</a>, <a class="reference external" href="https://www.gams.com">GAMS</a>, and <a class="reference external" href="https://github.com/ttinoco/OPTMOD">OPTMOD</a>.</p></li>
+<li><p><em>description</em>: Provides a single-line description for the annotated object. Latex expressions enclosed in $$ pairs are supported.</p></li>
+<li><p><em>labels</em>: Provides the name of an object with the same dimensions and structure of the annotated object that provides human-friendly labels for each component.</p></li>
 </ul>
+<p>For sample annotated models in various modeling systems, please check out our <a class="reference external" href="https://github.com/Fuinn/mos-examples">examples</a>.</p>
 </section>
-<section id="upload-modify-and-solve-your-model-s">
-<h2>Upload, modify and solve your model(s)<a class="headerlink" href="#upload-modify-and-solve-your-model-s" title="Permalink to this headline">¶</a></h2>
+<section id="deploying-models">
+<h2>Deploying Models<a class="headerlink" href="#deploying-models" title="Permalink to this headline">¶</a></h2>
+<p>A model can be deployed to the MOS framework via the web user interface or client libraries.
+Specifically, from the web user interface, the “Upload” button can be used, and then the annotated model file can be selected:</p>
+<img alt="_images/ui_upload.png" src="_images/ui_upload.png" />
+<p>For using the client libraries, the following environment variables need to be specified:</p>
 <ul class="simple">
-<li><p>Models can be uploaded, modified, and solved through the <a class="reference external" href="https://mos.fuinn.ie">MOS
-Frontend</a>, the MOS Interface <a class="reference external" href="https://github.com/Fuinn/mos-interface-py">Python package</a> or
-<a class="reference external" href="https://github.com/Fuinn/mos-interface-jl">Julia package</a>, or via the <a class="reference internal" href="api.html#api"><span class="std std-ref">REST API</span></a> directly (see individual instructions for use of each)</p></li>
-<li><p>Note that model input data (<code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">File</span></code> or <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Object</span></code>) need to be explicitly defined (filepath or object value) through either the MOS Frontend or API. Currently, this explicit definition through MOS is required even when the data is defined in the annotated model file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOS_BACKEND_HOST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOS_BACKEND_PORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOS_BACKEND_TOKEN</span></code></p></li>
 </ul>
+<p>The token can be obtained from the web user interface, by clicking on the username on the top right corner:</p>
+<img alt="_images/ui_token.png" src="_images/ui_token.png" />
+<p>The following code snippets show how to deploy a model using the client libraries after the environmnet variables have been set:</p>
+<div class="tabs docutils container" data-tabgroup="">
+<ul class="tabbar">
+<li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
+Python</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
+Julia</li></ul><div class="tab codetab selected" data-id="0">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">interface</span><span class="o">.</span><span class="n">new_model</span><span class="p">(</span><span class="s1">&#39;path_to_annotated_model_file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div class="tab codetab" data-id="1">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MOSInterface</span>
+
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div></section>
+<section id="interacting-with-models">
+<h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Permalink to this headline">¶</a></h2>
+<p>Once a model is deployed to the MOS platform, it can be utilized and analyzed. This involves setting model input files and input objects, running the model, extracting and analyzing optimization results, and extracting model outputs.</p>
+<p>In the web user interface, this can be done by clicking on the model, and then using the model menu (left) and actions menu (right):</p>
+<img alt="_images/ui_interact.png" src="_images/ui_interact.png" />
+<p>The code snippets below show how to interact with a model via the client libraries:</p>
+<div class="tabs docutils container" data-tabgroup="">
+<ul class="tabbar">
+<li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
+Python</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
+Julia</li></ul><div class="tab codetab selected" data-id="0">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">interface</span><span class="o">.</span><span class="n">get_model_with_name</span><span class="p">(</span><span class="s1">&#39;Some Model&#39;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">set_interface_object</span><span class="p">(</span><span class="s1">&#39;object_name&#39;</span><span class="p">,</span> <span class="n">some_object</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">set_interface_file</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="s1">&#39;path_to_file&#39;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_status</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_variable_state</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_function_state</span><span class="p">(</span><span class="s1">&#39;func_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_object</span><span class="p">(</span><span class="s1">&#39;object_name&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_file</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div class="tab codetab" data-id="1">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MOSInterface</span>
+
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">get_model_with_name</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="s">&quot;Some Model&quot;</span><span class="p">)</span>
+
+<span class="n">set_interface_object</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s">&quot;object_name&quot;</span><span class="p">,</span> <span class="n">some_object</span><span class="p">)</span>
+<span class="n">set_interface_file</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s">&quot;file_name&quot;</span><span class="p">,</span> <span class="s">&quot;path_to_file&quot;</span><span class="p">)</span>
+
+<span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></div></section>
+<section id="monitoring-models">
+<h2>Monitoring Models<a class="headerlink" href="#monitoring-models" title="Permalink to this headline">¶</a></h2>
+<p>Coming soon.</p>
+</section>
+<section id="saving-and-loading-models">
+<h2>Saving and Loading Models<a class="headerlink" href="#saving-and-loading-models" title="Permalink to this headline">¶</a></h2>
+<p>Coming Soon.</p>
 </section>
 </section>
 
@@ -84,7 +176,7 @@ Frontend</a>, the MOS Interface <a class="reference external" href="https://gith
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="index.html">
-    <img class="logo" src="_static/logo2.png" alt="Logo"/>
+    <img class="logo" src="_static/logo1.png" alt="Logo"/>
     
   </a>
 </p>
@@ -99,24 +191,26 @@ Frontend</a>, the MOS Interface <a class="reference external" href="https://gith
 <h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#access-mos">Access MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#prepare-or-obtain-an-annotated-model-file">Prepare or obtain an annotated model file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#upload-modify-and-solve-your-model-s">Upload, modify and solve your model(s)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-service">Using the Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-models">Annotating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-models">Deploying Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interacting-with-models">Interacting with Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-models">Monitoring Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-and-loading-models">Saving and Loading Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="abstraction.html">Abstraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">Annotation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">REST API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Us</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">MOS</a></li>
-      <li>Next: <a href="abstraction.html" title="next chapter">Abstraction</a></li>
+      <li>Previous: <a href="overview.html" title="previous chapter">Overview</a></li>
+      <li>Next: <a href="resources.html" title="next chapter">Resources</a></li>
   </ul></li>
 </ul>
 </div>

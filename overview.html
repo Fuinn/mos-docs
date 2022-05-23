@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Overview &#8212; MOS  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/code-tabs.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/code-tabs.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="start.html" />
+    <link rel="prev" title="MOS Software Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="overview">
+<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<section id="what-is-mos">
+<h2>What is MOS?<a class="headerlink" href="#what-is-mos" title="Permalink to this headline">¶</a></h2>
+<p>MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models.
+Some of the key benefits provided are the following:</p>
+<ul class="simple">
+<li><p>Models can be easily uploaded to the application after adding simple annotations to the model code.</p></li>
+<li><p>Models can be accessed via various available interfaces, including a REST API, a web graphical user interface, and client libraries in popular programming languages such as Python and Julia.</p></li>
+<li><p>Models can be run with different inputs by workers running locally or distributed over the network.</p></li>
+<li><p>Intermediate and end results can be extracted, browsed, and analyzed.</p></li>
+<li><p>Model performance and usage can be monitored and visualized. (Coming soon)</p></li>
+<li><p>Model run snapshots can be saved for future analysis. (Coming soon)</p></li>
+</ul>
+<p>This is all available without the need for custom ad-hoc code!</p>
+</section>
+<section id="service-architecture">
+<h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
+<p>MOS consists of various components:</p>
+<ul class="simple">
+<li><p>Backend: Manages model data and access, and provides a REST API for interacting with models.</p></li>
+<li><p>Frontend: Provides a web graphical user interface for accessing and using models.</p></li>
+<li><p>Compute workers: Run models locally or distributed over the network using modeling-system-specific computational kernels.</p></li>
+<li><p>Interface libraries: Allow users or other applications to interact with models using popular programming languages.</p></li>
+</ul>
+<p>The architecture is shown on the diagram below.</p>
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" class="align-center" src="_images/architecture.png" style="width: 499.20000000000005px; height: 345.6px;" /></a>
+</section>
+<section id="model-representation">
+<h2>Model Representation<a class="headerlink" href="#model-representation" title="Permalink to this headline">¶</a></h2>
+<p>MOS views and represents optimization models as being more general than a collection of variables, functions, and constraints. MOS views them as also having inputs, outputs, and intermediate objects in between. The intermediate or “helper objects” correspond to objects that are created either in a pre-optimization phase, for facilitating the construction of model variables, functions and constraints, or in a post-optimization phase, for facilitating the construction of outputs. This more generalized representation is helpful for interacting and analyzing models using a variety of tools.</p>
+<p>A diagram of the model representation used by MOS is shown below.</p>
+<a class="reference internal image-reference" href="_images/model_representation.png"><img alt="_images/model_representation.png" class="align-center" src="_images/model_representation.png" style="width: 389.2px; height: 537.5999999999999px;" /></a>
+</section>
+<section id="modeling-systems">
+<h2>Modeling Systems<a class="headerlink" href="#modeling-systems" title="Permalink to this headline">¶</a></h2>
+<p>MOS allows deploying models written using various mathematical optimization modeling systems.
+The ones currently fully or partially supported as the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cvxpy.org/">CVXPY</a></p></li>
+<li><p><a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a></p></li>
+<li><p><a class="reference external" href="http://www.pyomo.org/">Pyomo</a></p></li>
+</ul>
+<p>Compute workers are responsible for processessing requests to execute models deployed via MOS. The model execution part itself is done by a <em>computational kernel</em> chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.</p>
+</section>
+<section id="model-execution-environments">
+<h2>Model Execution Environments<a class="headerlink" href="#model-execution-environments" title="Permalink to this headline">¶</a></h2>
+<p>Currently, the compute workers run models using the same executing environment for all models. That is, the same Python and Julia versions, and the same dependencies. An enhancement for this is planned, in which each model can specify the custom envirionment on which it is run. Stay tuned.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo1.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-mos">What is MOS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-architecture">Service Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-representation">Model Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modeling-systems">Modeling Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-execution-environments">Model Execution Environments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Us</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">MOS Software Documentation</a></li>
+      <li>Next: <a href="start.html" title="next chapter">Getting Started</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Fuinn Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/overview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
