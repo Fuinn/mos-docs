@@ -22,7 +22,7 @@ copyright = '2022, Fuinn Team'
 author = 'Tomás Tinoco De Rubira & James Merrick'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+#release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +31,8 @@ release = '0.1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-     'sphinxcontrib.openapi',    
+     #'sphinxcontrib.openapi',    
+     'sphinx_code_tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,14 +52,14 @@ exclude_patterns = []
 html_theme = 'alabaster'
 
 html_theme_options = {
-    'logo': 'logo2.png',
+    'logo': 'logo1.png',
     'body_max_width': '75%',
     'page_width': '85%',
-    'sidebar_width': '15%'
+    'sidebar_width': '10%'
 }
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['../static']
