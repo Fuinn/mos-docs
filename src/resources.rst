@@ -34,7 +34,7 @@ Sample Models
 Code Repositories
 =================
 
-* `MOS software documentation code repository <https://github.com/Fuinn/mos-docs>`_
+* `MOS software documentation code repository <https://github.com/Fuinn/mos-docs>`_ (this documentation)
 * `MOS demo code repository <https://github.com/Fuinn/mos-demo>`_
 * `MOS backend code repository <https://github.com/Fuinn/mos-backend>`_
 * `MOS frontend code repository <https://github.com/Fuinn/mos-frontend>`_

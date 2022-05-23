@@ -31,7 +31,7 @@ Supported tags are the following:
 
 * *model*: Provides the name of the model.
 * *input file*: Provides the name of an input files that can be provided to the model.
-* *input object*:  Provides the name of an input (JSON-serializable) objet that can be provided to the model.
+* *input object*:  Provides the name of an input (JSON-serializable) object that can be provided to the model.
 * *helper object*: Provides the name of a pre- or post-optimization (JSON-serializable) helper object.
 * *variable*: Provides the name of an object representing an optimization variable (or collection of scalar variables).
 * *function*: Provides the name of an object representing an optimization function (or collection of scalar-valued functions).
@@ -44,7 +44,7 @@ Supported tags are the following:
 Supported keys are the following:
 
 * *description*: Provides a single-line description for the annotated object. Latex expressions enclosed in $$ pairs are supported.
-* *labels*: Provides the name of an object with the same dimensions and structure of the annotated object that provides labels for each component.
+* *labels*: Provides the name of an object with the same dimensions and structure of the annotated object that provides human-friendly labels for each component.
 
 For sample annotated models in various modeling systems, please check out our `examples <https://github.com/Fuinn/mos-examples>`_.
 
@@ -52,7 +52,7 @@ Deploying Models
 ================
 
 A model can be deployed to the MOS framework via the web user interface or client libraries. 
-Specifically, from the web user interface, the "Upload" button can be used, and then the model file can be selected:
+Specifically, from the web user interface, the "Upload" button can be used, and then the annotated model file can be selected:
 
 .. image:: ../static/ui_upload.*
 
@@ -91,9 +91,9 @@ The following code snippets show how to deploy a model using the client librarie
 Interacting with Models
 =======================
 
-Once a model is deployed, models can be utilized. This involves setting model input files and inputs objects, running the mode, extracting and analyzing optimization results, and extracting model outputs. 
+Once a model is deployed to the MOS platform, it can be utilized and analyzed. This involves setting model input files and input objects, running the model, extracting and analyzing optimization results, and extracting model outputs. 
 
-In the web user interface, this can be done by clicking on the model, and then using the model and actions menu:
+In the web user interface, this can be done by clicking on the model, and then using the model menu (left) and actions menu (right):
 
 .. image:: ../static/ui_interact.*
 
