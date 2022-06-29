@@ -55,6 +55,7 @@ The ones currently fully or partially supported as the following:
 * `CVXPY <https://www.cvxpy.org/>`__
 * `JuMP <https://jump.dev/JuMP.jl/stable/>`_
 * `Pyomo <http://www.pyomo.org/>`_
+* `GAMS <https://www.gams.com/>`_ (subject to license)
 
 Compute workers are responsible for processessing requests to execute models deployed via MOS. The model execution part itself is done by a *computational kernel* chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.
 
