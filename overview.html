@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Overview &#8212; MOS  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -13,6 +13,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/code-tabs.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -37,9 +38,9 @@
           <div class="body" role="main">
             
   <section id="overview">
-<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
 <section id="what-is-mos">
-<h2>What is MOS?<a class="headerlink" href="#what-is-mos" title="Permalink to this headline">¶</a></h2>
+<h2>What is MOS?<a class="headerlink" href="#what-is-mos" title="Permalink to this heading">¶</a></h2>
 <p>MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models.
 Some of the key benefits provided are the following:</p>
 <ul class="simple">
@@ -53,7 +54,7 @@ Some of the key benefits provided are the following:</p>
 <p>This is all available without the need for custom ad-hoc code!</p>
 </section>
 <section id="service-architecture">
-<h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
+<h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this heading">¶</a></h2>
 <p>MOS consists of various components:</p>
 <ul class="simple">
 <li><p>Backend: Manages model data and access, and provides a REST API for interacting with models.</p></li>
@@ -65,24 +66,25 @@ Some of the key benefits provided are the following:</p>
 <a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" class="align-center" src="_images/architecture.png" style="width: 499.20000000000005px; height: 345.6px;" /></a>
 </section>
 <section id="model-representation">
-<h2>Model Representation<a class="headerlink" href="#model-representation" title="Permalink to this headline">¶</a></h2>
+<h2>Model Representation<a class="headerlink" href="#model-representation" title="Permalink to this heading">¶</a></h2>
 <p>MOS views and represents optimization models as being more general than a collection of variables, functions, and constraints. MOS views them as also having inputs, outputs, and intermediate objects in between. The intermediate or “helper objects” correspond to objects that are created either in a pre-optimization phase, for facilitating the construction of model variables, functions and constraints, or in a post-optimization phase, for facilitating the construction of outputs. This more generalized representation is helpful for interacting and analyzing models using a variety of tools.</p>
 <p>A diagram of the model representation used by MOS is shown below.</p>
 <a class="reference internal image-reference" href="_images/model_representation.png"><img alt="_images/model_representation.png" class="align-center" src="_images/model_representation.png" style="width: 389.2px; height: 537.5999999999999px;" /></a>
 </section>
 <section id="modeling-systems">
-<h2>Modeling Systems<a class="headerlink" href="#modeling-systems" title="Permalink to this headline">¶</a></h2>
+<h2>Modeling Systems<a class="headerlink" href="#modeling-systems" title="Permalink to this heading">¶</a></h2>
 <p>MOS allows deploying models written using various mathematical optimization modeling systems.
 The ones currently fully or partially supported as the following:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.cvxpy.org/">CVXPY</a></p></li>
 <li><p><a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a></p></li>
 <li><p><a class="reference external" href="http://www.pyomo.org/">Pyomo</a></p></li>
+<li><p><a class="reference external" href="https://www.gams.com/">GAMS</a> (subject to license)</p></li>
 </ul>
 <p>Compute workers are responsible for processessing requests to execute models deployed via MOS. The model execution part itself is done by a <em>computational kernel</em> chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.</p>
 </section>
 <section id="model-execution-environments">
-<h2>Model Execution Environments<a class="headerlink" href="#model-execution-environments" title="Permalink to this headline">¶</a></h2>
+<h2>Model Execution Environments<a class="headerlink" href="#model-execution-environments" title="Permalink to this heading">¶</a></h2>
 <p>Currently, the compute workers run models using the same executing environment for all models. That is, the same Python and Julia versions, and the same dependencies. An enhancement for this is planned, in which each model can specify the custom envirionment on which it is run. Stay tuned.</p>
 </section>
 </section>
@@ -142,7 +144,7 @@ The ones currently fully or partially supported as the following:</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -159,7 +161,7 @@ The ones currently fully or partially supported as the following:</p>
       &copy;2022, Fuinn Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

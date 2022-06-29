@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Getting Started &#8212; MOS  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -13,6 +13,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/code-tabs.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -37,9 +38,9 @@
           <div class="body" role="main">
             
   <section id="getting-started">
-<span id="start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<span id="start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
 <section id="using-the-service">
-<h2>Using the Service<a class="headerlink" href="#using-the-service" title="Permalink to this headline">¶</a></h2>
+<h2>Using the Service<a class="headerlink" href="#using-the-service" title="Permalink to this heading">¶</a></h2>
 <p>There are three ways to use MOS:</p>
 <ol class="arabic simple">
 <li><p><strong>MOS demo</strong>: This is a simple way to run MOS locally on your machine to try the service. It runs all MOS components in <a class="reference external" href="https://www.docker.com/">docker</a> images using <a class="reference external" href="https://www.docker.com/">docker-compose</a>. It uses development servers NOT suitable for any serious work requiring performance and security. It is just for demo purposes. Instructions for launching the demo can be found <a class="reference external" href="https://github.com/Fuinn/mos-demo">here</a>.</p></li>
@@ -49,7 +50,7 @@
 <p>For help or questions, <a class="reference external" href="mailto:hello&#37;&#52;&#48;fuinn&#46;ie">reach out to us</a>.</p>
 </section>
 <section id="annotating-models">
-<h2>Annotating Models<a class="headerlink" href="#annotating-models" title="Permalink to this headline">¶</a></h2>
+<h2>Annotating Models<a class="headerlink" href="#annotating-models" title="Permalink to this heading">¶</a></h2>
 <p>Annotating a model code is necessary for informing MOS of the various model components that are important and need to be exposed on the model interface. Annotations have the general form below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Tag: Name</span>
 <span class="c1">#@ Key1: Value1</span>
@@ -79,7 +80,7 @@
 <p>For sample annotated models in various modeling systems, please check out our <a class="reference external" href="https://github.com/Fuinn/mos-examples">examples</a>.</p>
 </section>
 <section id="deploying-models">
-<h2>Deploying Models<a class="headerlink" href="#deploying-models" title="Permalink to this headline">¶</a></h2>
+<h2>Deploying Models<a class="headerlink" href="#deploying-models" title="Permalink to this heading">¶</a></h2>
 <p>A model can be deployed to the MOS framework via the web user interface or client libraries.
 Specifically, from the web user interface, the “Upload” button can be used, and then the annotated model file can be selected:</p>
 <img alt="_images/ui_upload.png" src="_images/ui_upload.png" />
@@ -114,7 +115,7 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
 </div>
 </div></div></section>
 <section id="interacting-with-models">
-<h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Permalink to this headline">¶</a></h2>
+<h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Permalink to this heading">¶</a></h2>
 <p>Once a model is deployed to the MOS platform, it can be utilized and analyzed. This involves setting model input files and input objects, running the model, extracting and analyzing optimization results, and extracting model outputs.</p>
 <p>In the web user interface, this can be done by clicking on the model, and then using the model menu (left) and actions menu (right):</p>
 <img alt="_images/ui_interact.png" src="_images/ui_interact.png" />
@@ -158,11 +159,11 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
 </div>
 </div></div></section>
 <section id="monitoring-models">
-<h2>Monitoring Models<a class="headerlink" href="#monitoring-models" title="Permalink to this headline">¶</a></h2>
+<h2>Monitoring Models<a class="headerlink" href="#monitoring-models" title="Permalink to this heading">¶</a></h2>
 <p>Coming soon.</p>
 </section>
 <section id="saving-and-loading-models">
-<h2>Saving and Loading Models<a class="headerlink" href="#saving-and-loading-models" title="Permalink to this headline">¶</a></h2>
+<h2>Saving and Loading Models<a class="headerlink" href="#saving-and-loading-models" title="Permalink to this heading">¶</a></h2>
 <p>Coming Soon.</p>
 </section>
 </section>
@@ -223,7 +224,7 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -240,7 +241,7 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
       &copy;2022, Fuinn Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
