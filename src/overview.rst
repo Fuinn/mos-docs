@@ -50,7 +50,7 @@ Modeling Systems
 ================
 
 MOS allows deploying models written using various mathematical optimization modeling systems. 
-The ones currently fully or partially supported as the following:
+The systems fully or partially supported currently are the following:
 
 * `CVXPY <https://www.cvxpy.org/>`__
 * `JuMP <https://jump.dev/JuMP.jl/stable/>`_
