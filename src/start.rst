@@ -66,7 +66,7 @@ The token can be obtained from the web user interface, by clicking on the userna
 
 .. image:: ../static/ui_token.*
 
-The following code snippets show how to deploy a model using the client libraries after the environmnet variables have been set:
+The following code snippets show how to deploy a model using the client libraries after the environment variables have been set:
 
 .. tabs::
 
