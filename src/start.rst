@@ -71,22 +71,27 @@ The following code snippets show how to deploy a model using the client librarie
 .. tabs::
 
     .. code-tab:: python
-        :caption: Python
+       :caption: Python
 
-        from mos.interface import Interface
+       from mos.interface import Interface
 
-        interface = Interface()
+       interface = Interface()
 
-        model = interface.new_model('path_to_annotated_model_file')
+       model = interface.new_model('path_to_annotated_model_file')
 
     .. code-tab:: julia
-         :caption: Julia
+       :caption: Julia
         
-         using MOSInterface
+       using MOSInterface
 
-         interface = Interface()
+       interface = Interface()
 
-         model = new_model(interface, "path_to_annotated_model_file")
+       model = new_model(interface, "path_to_annotated_model_file")
+
+    .. code-tab:: bash 
+       :caption: CLI 
+
+       mosctl model new 'path_to_annotated_model_file'
 
 Interacting with Models
 =======================
@@ -102,40 +107,55 @@ The code snippets below show how to interact with a model via the client librari
 .. tabs::
 
     .. code-tab:: python
-        :caption: Python
+       :caption: Python
 
-        from mos.interface import Interface
+       from mos.interface import Interface
 
-        model = interface.get_model_with_name('Some Model')
+       model = interface.get_model_with_name('Some Model')
 
-        model.set_interface_object('object_name', some_object)
-        model.set_interface_file('file_name', 'path_to_file')
+       model.set_interface_object('object_name', some_object)
+       model.set_interface_file('file_name', 'path_to_file')
 
-        model.run()
+       model.run()
 
-        print(model.get_status())
-        print(model.get_variable_state('var_name', 'value'))
-        print(model.get_function_state('func_name', 'value'))
+       print(model.get_status())
+       print(model.get_variable_state('var_name', 'value'))
+       print(model.get_function_state('func_name', 'value'))
 
-        print(model.get_interface_object('object_name')
-        print(model.get_interface_file('file_name')
+       print(model.get_interface_object('object_name')
+       print(model.get_interface_file('file_name')
       
     .. code-tab:: julia
-         :caption: Julia
+       :caption: Julia
         
-         using MOSInterface
+       using MOSInterface
 
-         interface = Interface()
+       interface = Interface()
 
-         model = get_model_with_name(interface, "Some Model")
+       model = get_model_with_name(interface, "Some Model")
 
-         set_interface_object(model, "object_name", some_object)
-         set_interface_file(model, "file_name", "path_to_file")
+       set_interface_object(model, "object_name", some_object)
+       set_interface_file(model, "file_name", "path_to_file")
 
-         MOSInterface.run(model)
+       MOSInterface.run(model)
 
-         println(get_status(model))
-         
+       println(get_status(model))
+
+    .. code-tab:: bash 
+       :caption: CLI 
+
+       mosctl model --name 'Some Model' set-interface-object 'object_name' 'some_object'
+       mosctl model --name 'Some Model' set-interface-file 'file_name' 'path_to_file'
+
+       mosctl model --name 'Some Model' run 
+
+       mosctl model --name 'Some Model' get-status
+       mosctl model --name 'Some Model' get-variable-state 'var_name'
+       mosctl model --name 'Some Model' get-function-state 'func_name'
+
+       mosctl model --name 'Some Model' get-interface-object 'object_name'
+       mosctl model --name 'Some Model' get-interface-file 'file_name'
+
 Monitoring Models
 =================
 
