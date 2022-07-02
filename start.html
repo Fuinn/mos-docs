@@ -97,7 +97,8 @@ Specifically, from the web user interface, the “Upload” button can be used, 
 <ul class="tabbar">
 <li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
 Python</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
-Julia</li></ul><div class="tab codetab selected" data-id="0">
+Julia</li><li class="tabbutton" data-id="2" onclick="sphinx_code_tabs_onclick(this)">
+CLI</li></ul><div class="tab codetab selected" data-id="0">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
 
 <span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
@@ -113,6 +114,10 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
 <span class="n">model</span> <span class="o">=</span> <span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div><div class="tab codetab" data-id="2">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl model new <span class="s1">&#39;path_to_annotated_model_file&#39;</span>
+</pre></div>
+</div>
 </div></div></section>
 <section id="interacting-with-models">
 <h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Permalink to this heading">¶</a></h2>
@@ -124,7 +129,8 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
 <ul class="tabbar">
 <li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
 Python</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
-Julia</li></ul><div class="tab codetab selected" data-id="0">
+Julia</li><li class="tabbutton" data-id="2" onclick="sphinx_code_tabs_onclick(this)">
+CLI</li></ul><div class="tab codetab selected" data-id="0">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">interface</span><span class="o">.</span><span class="n">get_model_with_name</span><span class="p">(</span><span class="s1">&#39;Some Model&#39;</span><span class="p">)</span>
@@ -155,6 +161,20 @@ Julia</li></ul><div class="tab codetab selected" data-id="0">
 <span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
 <span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+</pre></div>
+</div>
+</div><div class="tab codetab" data-id="2">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl model --name <span class="s1">&#39;Some Model&#39;</span> set-interface-object <span class="s1">&#39;object_name&#39;</span> <span class="s1">&#39;some_object&#39;</span>
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> set-interface-file <span class="s1">&#39;file_name&#39;</span> <span class="s1">&#39;path_to_file&#39;</span>
+
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> run
+
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-status
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-variable-state <span class="s1">&#39;var_name&#39;</span>
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-function-state <span class="s1">&#39;func_name&#39;</span>
+
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-object <span class="s1">&#39;object_name&#39;</span>
+mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-file <span class="s1">&#39;file_name&#39;</span>
 </pre></div>
 </div>
 </div></div></section>
