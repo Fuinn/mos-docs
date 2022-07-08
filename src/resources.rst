@@ -11,6 +11,7 @@ Documentation
 * MOS backend documentation (coming soon)
 * MOS frontend documentation (coming soon)
 * MOS compute worker and kernels documentation (coming soon)
+* `MOS interface documentation (command-line) <https://fuinn.github.io/mos-cli/>`_
 * `MOS interface documentation (Python) <https://fuinn.github.io/mos-interface-py/>`_
 * `MOS interface documentation (Julia) <https://fuinn.github.io/mos-interface-jl/>`_
 
@@ -40,6 +41,7 @@ Code Repositories
 * `MOS frontend code repository <https://github.com/Fuinn/mos-frontend>`_
 * `MOS compute worker code repository (Python) <https://github.com/Fuinn/mos-compute-py>`_
 * `MOS compute worker code repository (Julia) <https://github.com/Fuinn/mos-compute-jl>`_
+* `MOS interface code repository (command-line) <https://github.com/Fuinn/mos-cli>`_
 * `MOS interface code repository (Python) <https://github.com/Fuinn/mos-interface-py>`_
 * `MOS interface code repository (Julia) <https://github.com/Fuinn/mos-interface-jl>`_
 
