@@ -15,7 +15,7 @@ There are three ways to use MOS:
 
 3. **MOS on-premise**: Deploy MOS on a private network and servers by working directly with the :ref:`code repositories <resources_code>`.
 
-For help or questions, `reach out to us <mailto:hello@fuinn.ie>`_.
+For help or questions, `reach out to us <mailto:mos@fuinn.ie>`_.
 
 Annotating Models
 =================
