@@ -55,7 +55,7 @@ The systems fully or partially supported currently are the following:
 * `CVXPY <https://www.cvxpy.org/>`__
 * `JuMP <https://jump.dev/JuMP.jl/stable/>`_
 * `GAMS <https://www.gams.com/>`_ (subject to license)
-* `Pyomo <http://www.pyomo.org/>`_ (currently limited to AbstractModels)
+* `Pyomo <http://www.pyomo.org/>`_
 * `OPTMOD <https://github.com/ttinoco/OPTMOD>`_ 
   
 Compute workers are responsible for processing requests to execute models deployed via MOS. The model execution part itself is done by a *computational kernel* chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.
