@@ -32,6 +32,13 @@ Sample Models
 
 .. _resources_code:
 
+Discussion
+==========
+
+* `MOS Discord server <https://discord.gg/awQbaDjqYn>`_
+
+
+
 Code Repositories
 =================
 
@@ -44,4 +51,5 @@ Code Repositories
 * `MOS interface code repository (command-line) <https://github.com/Fuinn/mos-cli>`_
 * `MOS interface code repository (Python) <https://github.com/Fuinn/mos-interface-py>`_
 * `MOS interface code repository (Julia) <https://github.com/Fuinn/mos-interface-jl>`_
+
 

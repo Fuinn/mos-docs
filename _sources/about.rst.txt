@@ -12,5 +12,7 @@ Tomás and James earned their PhDs from Stanford University, developing tractabl
 
 `Say hello! <mailto:mos@fuinn.ie>`_
 
+`Join us on Discord <https://discord.gg/awQbaDjqYn>`_
+
 
 
