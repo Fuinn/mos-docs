@@ -17,8 +17,13 @@ There are three ways to use MOS:
 
 For help or questions, `reach out to us <mailto:mos@fuinn.ie>`_.
 
+
+.. _start_annotating:
+
 Annotating Models
 =================
+
+For sample annotated models in various modeling systems, please check out our `examples <https://github.com/Fuinn/mos-examples>`_.
 
 Annotating a model code is necessary for informing MOS of the various model components that are important and need to be exposed on the model interface. Annotations have the general form below::
 
@@ -45,8 +50,6 @@ Supported keys are the following:
 
 * *description*: Provides a single-line description for the annotated object. Latex expressions enclosed in $$ pairs are supported.
 * *labels*: Provides the name of an object with the same dimensions and structure of the annotated object that provides human-friendly labels for each component.
-
-For sample annotated models in various modeling systems, please check out our `examples <https://github.com/Fuinn/mos-examples>`_.
 
 Deploying Models
 ================

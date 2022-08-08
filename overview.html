@@ -42,9 +42,10 @@
 <section id="what-is-mos">
 <h2>What is MOS?<a class="headerlink" href="#what-is-mos" title="Permalink to this heading">¶</a></h2>
 <p>MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models.
+Here are <a class="reference external" href="https://github.com/Fuinn/mos-examples">examples</a> of models, written in popular modeling languages, ready to use with MOS.
 Some of the key benefits provided are the following:</p>
 <ul class="simple">
-<li><p>Models can be easily uploaded to the application after adding simple annotations to the model code.</p></li>
+<li><p>Models can be easily uploaded to the application after adding simple <a class="reference internal" href="start.html#start-annotating"><span class="std std-ref">annotations</span></a> to the model code.</p></li>
 <li><p>Models can be accessed via various available interfaces, including a REST API, a web graphical user interface, and client libraries in popular programming languages such as Python and Julia.</p></li>
 <li><p>Models can be run with different inputs by workers running locally or distributed over the network.</p></li>
 <li><p>Intermediate and end results can be extracted, browsed, and analyzed.</p></li>
@@ -83,6 +84,7 @@ The systems fully or partially supported currently are the following:</p>
 <li><p><a class="reference external" href="https://github.com/ttinoco/OPTMOD">OPTMOD</a></p></li>
 </ul>
 <p>Compute workers are responsible for processing requests to execute models deployed via MOS. The model execution part itself is done by a <em>computational kernel</em> chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.</p>
+<p>For sample annotated models in each modeling system above, please check out our <a class="reference external" href="https://github.com/Fuinn/mos-examples">examples</a>.</p>
 </section>
 <section id="model-execution-environments">
 <h2>Model Execution Environments<a class="headerlink" href="#model-execution-environments" title="Permalink to this heading">¶</a></h2>
