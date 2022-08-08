@@ -7,10 +7,11 @@ Overview
 What is MOS?
 ============
 
-MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models. 
+MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models.
+Here are `examples <https://github.com/Fuinn/mos-examples>`_ of models, written in popular modeling languages, ready to use with MOS.
 Some of the key benefits provided are the following:
 
-* Models can be easily uploaded to the application after adding simple annotations to the model code.
+* Models can be easily uploaded to the application after adding simple :ref:`annotations <start_annotating>` to the model code.
 * Models can be accessed via various available interfaces, including a REST API, a web graphical user interface, and client libraries in popular programming languages such as Python and Julia. 
 * Models can be run with different inputs by workers running locally or distributed over the network. 
 * Intermediate and end results can be extracted, browsed, and analyzed. 
@@ -59,6 +60,8 @@ The systems fully or partially supported currently are the following:
 * `OPTMOD <https://github.com/ttinoco/OPTMOD>`_ 
   
 Compute workers are responsible for processing requests to execute models deployed via MOS. The model execution part itself is done by a *computational kernel* chosen by the worker. There is one computational kernel for each modeling system that understands the specific details about such modeling system, including the data types used for defining variables, functions, and constraints.
+
+For sample annotated models in each modeling system above, please check out our `examples <https://github.com/Fuinn/mos-examples>`_.
 
 Model Execution Environments
 ============================
