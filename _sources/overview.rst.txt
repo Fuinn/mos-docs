@@ -9,6 +9,7 @@ What is MOS?
 
 MOS is a software application designed to facilitate the deployment, integration, management, and analysis of mathematical optimization models.
 Here are `examples <https://github.com/Fuinn/mos-examples>`_ of models, written in popular modeling languages, ready to use with MOS.
+
 Some of the key benefits provided are the following:
 
 * Models can be easily uploaded to the application after adding simple :ref:`annotations <start_annotating>` to the model code.
