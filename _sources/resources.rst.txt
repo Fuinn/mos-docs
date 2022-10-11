@@ -36,6 +36,7 @@ Discussion
 ==========
 
 * `MOS Discord server <https://discord.gg/awQbaDjqYn>`_
+* `MOS Twitter <https://twitter.com/fuinn_mos>`_  
 
 
 
