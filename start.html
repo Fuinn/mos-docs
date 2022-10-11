@@ -15,6 +15,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/code-tabs.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -107,11 +108,11 @@ CLI</li></ul><div class="tab codetab selected" data-id="0">
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="1">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MOSInterface</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span><span class="w"></span>
 
-<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
+<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span><span class="w"></span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="2">
@@ -140,27 +141,27 @@ CLI</li></ul><div class="tab codetab selected" data-id="0">
 
 <span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_status</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_variable_state</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_function_state</span><span class="p">(</span><span class="s1">&#39;func_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_status</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_variable_state</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_function_state</span><span class="p">(</span><span class="s1">&#39;func_name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_object</span><span class="p">(</span><span class="s1">&#39;object_name&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_file</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_object</span><span class="p">(</span><span class="s1">&#39;object_name&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_interface_file</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="1">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MOSInterface</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span><span class="w"></span>
 
-<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">()</span>
+<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span><span class="w"></span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">get_model_with_name</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="s">&quot;Some Model&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_model_with_name</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Some Model&quot;</span><span class="p">)</span><span class="w"></span>
 
-<span class="n">set_interface_object</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s">&quot;object_name&quot;</span><span class="p">,</span> <span class="n">some_object</span><span class="p">)</span>
-<span class="n">set_interface_file</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s">&quot;file_name&quot;</span><span class="p">,</span> <span class="s">&quot;path_to_file&quot;</span><span class="p">)</span>
+<span class="n">set_interface_object</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;object_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">some_object</span><span class="p">)</span><span class="w"></span>
+<span class="n">set_interface_file</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_file&quot;</span><span class="p">)</span><span class="w"></span>
 
-<span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="w"></span>
 
-<span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="2">
@@ -261,7 +262,7 @@ mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-f
       &copy;2022, Fuinn Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.1.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

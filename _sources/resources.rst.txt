@@ -18,7 +18,7 @@ Documentation
 Papers
 ======
 
-* `Whitepaper <https://fuinn.ie/mos.pdf>`_
+* `Whitepaper <https://arxiv.org/abs/2210.03813>`_
 
 Videos
 ======
