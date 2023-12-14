@@ -10,7 +10,7 @@ Tomás and James were inspired to build MOS after the friction they experienced 
 
 Tomás and James earned their PhDs from Stanford University, developing tractable formulations of important optimization problems.
 
-`Say hello! <mailto:mos@fuinn.ie>`_
+`Say hello! <mailto:mos@geal.ie>`_
 
 `Join us on Discord <https://discord.gg/awQbaDjqYn>`_
 
