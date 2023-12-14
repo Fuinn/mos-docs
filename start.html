@@ -1,22 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Getting Started &#8212; MOS  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="_static/code-tabs.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/code-tabs.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=90bb2c83" />
+    <link rel="stylesheet" type="text/css" href="_static/code-tabs.css?v=1bc26e2f" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/code-tabs.js?v=c983d12e"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,9 +31,9 @@
           <div class="body" role="main">
             
   <section id="getting-started">
-<span id="start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<span id="start"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h1>
 <section id="using-the-service">
-<h2>Using the Service<a class="headerlink" href="#using-the-service" title="Permalink to this heading">¶</a></h2>
+<h2>Using the Service<a class="headerlink" href="#using-the-service" title="Link to this heading">¶</a></h2>
 <p>There are three ways to use MOS:</p>
 <ol class="arabic simple">
 <li><p><strong>MOS demo</strong>: This is a simple way to run MOS locally on your machine to try the service. It runs all MOS components in <a class="reference external" href="https://www.docker.com/">docker</a> images using <a class="reference external" href="https://www.docker.com/">docker-compose</a>. It uses development servers NOT suitable for any serious work requiring performance and security. It is just for demo purposes. Instructions for launching the demo can be found <a class="reference external" href="https://github.com/Fuinn/mos-demo">here</a>.</p></li>
@@ -47,7 +43,7 @@
 <p>For help or questions, <a class="reference external" href="mailto:mos&#37;&#52;&#48;fuinn&#46;ie">reach out to us</a>.</p>
 </section>
 <section id="annotating-models">
-<span id="start-annotating"></span><h2>Annotating Models<a class="headerlink" href="#annotating-models" title="Permalink to this heading">¶</a></h2>
+<span id="start-annotating"></span><h2>Annotating Models<a class="headerlink" href="#annotating-models" title="Link to this heading">¶</a></h2>
 <p>For sample annotated models in various modeling systems, please check out our <a class="reference external" href="https://github.com/Fuinn/mos-examples">examples</a>.</p>
 <p>Annotating a model code is necessary for informing MOS of the various model components that are important and need to be exposed on the model interface. Annotations have the general form below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@ Tag: Name</span>
@@ -77,7 +73,7 @@
 </ul>
 </section>
 <section id="deploying-models">
-<h2>Deploying Models<a class="headerlink" href="#deploying-models" title="Permalink to this heading">¶</a></h2>
+<h2>Deploying Models<a class="headerlink" href="#deploying-models" title="Link to this heading">¶</a></h2>
 <p>A model can be deployed to the MOS framework via the web user interface or client libraries.
 Specifically, from the web user interface, the “Upload” button can be used, and then the annotated model file can be selected:</p>
 <img alt="_images/ui_upload.png" src="_images/ui_upload.png" />
@@ -104,20 +100,20 @@ CLI</li></ul><div class="tab codetab selected" data-id="0">
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="1">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span><span class="w"></span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span>
 
-<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span><span class="w"></span>
+<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span>
 
-<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_model</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_annotated_model_file&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="2">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl model new <span class="s1">&#39;path_to_annotated_model_file&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl<span class="w"> </span>model<span class="w"> </span>new<span class="w"> </span><span class="s1">&#39;path_to_annotated_model_file&#39;</span>
 </pre></div>
 </div>
 </div></div></section>
 <section id="interacting-with-models">
-<h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Permalink to this heading">¶</a></h2>
+<h2>Interacting with Models<a class="headerlink" href="#interacting-with-models" title="Link to this heading">¶</a></h2>
 <p>Once a model is deployed to the MOS platform, it can be utilized and analyzed. This involves setting model input files and input objects, running the model, extracting and analyzing optimization results, and extracting model outputs.</p>
 <p>In the web user interface, this can be done by clicking on the model, and then using the model menu (left) and actions menu (right):</p>
 <img alt="_images/ui_interact.png" src="_images/ui_interact.png" />
@@ -146,41 +142,41 @@ CLI</li></ul><div class="tab codetab selected" data-id="0">
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="1">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span><span class="w"></span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MOSInterface</span>
 
-<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span><span class="w"></span>
+<span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interface</span><span class="p">()</span>
 
-<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_model_with_name</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Some Model&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_model_with_name</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Some Model&quot;</span><span class="p">)</span>
 
-<span class="n">set_interface_object</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;object_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">some_object</span><span class="p">)</span><span class="w"></span>
-<span class="n">set_interface_file</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_file&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">set_interface_object</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;object_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">some_object</span><span class="p">)</span>
+<span class="n">set_interface_file</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;path_to_file&quot;</span><span class="p">)</span>
 
-<span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="w"></span>
+<span class="n">MOSInterface</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-<span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span><span class="w"></span>
+<span class="n">println</span><span class="p">(</span><span class="n">get_status</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
 </pre></div>
 </div>
 </div><div class="tab codetab" data-id="2">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl model --name <span class="s1">&#39;Some Model&#39;</span> set-interface-object <span class="s1">&#39;object_name&#39;</span> <span class="s1">&#39;some_object&#39;</span>
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> set-interface-file <span class="s1">&#39;file_name&#39;</span> <span class="s1">&#39;path_to_file&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>set-interface-object<span class="w"> </span><span class="s1">&#39;object_name&#39;</span><span class="w"> </span><span class="s1">&#39;some_object&#39;</span>
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>set-interface-file<span class="w"> </span><span class="s1">&#39;file_name&#39;</span><span class="w"> </span><span class="s1">&#39;path_to_file&#39;</span>
 
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> run
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>run
 
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-status
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-variable-state <span class="s1">&#39;var_name&#39;</span>
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-function-state <span class="s1">&#39;func_name&#39;</span>
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>get-status
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>get-variable-state<span class="w"> </span><span class="s1">&#39;var_name&#39;</span>
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>get-function-state<span class="w"> </span><span class="s1">&#39;func_name&#39;</span>
 
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-object <span class="s1">&#39;object_name&#39;</span>
-mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-file <span class="s1">&#39;file_name&#39;</span>
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>get-interface-object<span class="w"> </span><span class="s1">&#39;object_name&#39;</span>
+mosctl<span class="w"> </span>model<span class="w"> </span>--name<span class="w"> </span><span class="s1">&#39;Some Model&#39;</span><span class="w"> </span>get-interface-file<span class="w"> </span><span class="s1">&#39;file_name&#39;</span>
 </pre></div>
 </div>
 </div></div></section>
 <section id="monitoring-models">
-<h2>Monitoring Models<a class="headerlink" href="#monitoring-models" title="Permalink to this heading">¶</a></h2>
+<h2>Monitoring Models<a class="headerlink" href="#monitoring-models" title="Link to this heading">¶</a></h2>
 <p>Coming soon.</p>
 </section>
 <section id="saving-and-loading-snapshots">
-<h2>Saving and Loading Snapshots<a class="headerlink" href="#saving-and-loading-snapshots" title="Permalink to this heading">¶</a></h2>
+<h2>Saving and Loading Snapshots<a class="headerlink" href="#saving-and-loading-snapshots" title="Link to this heading">¶</a></h2>
 <p>Coming Soon.</p>
 </section>
 </section>
@@ -258,8 +254,8 @@ mosctl model --name <span class="s1">&#39;Some Model&#39;</span> get-interface-f
       &copy;2022, Fuinn Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
       <a href="_sources/start.rst.txt"
