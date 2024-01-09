@@ -36,7 +36,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['../_templates']
+# templates_path = ['../_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -50,12 +50,11 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'alabaster'
-
+html_logo = '../static/logo1.png'
 html_theme_options = {
-    'logo': 'logo1.png',
     'body_max_width': '75%',
     'page_width': '85%',
-    'sidebar_width': '10%'
+    'sidebar_width': '15%'
 }
 
 
